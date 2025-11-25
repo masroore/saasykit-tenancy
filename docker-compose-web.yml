@@ -1,0 +1,46 @@
+services:
+
+  app:
+    build:
+      context: ./docker/franken
+      dockerfile: Dockerfile
+      target: base
+    volumes:
+      - .:/app
+      - ./docker/franken/Caddyfile:/etc/frankenphp/Caddyfile:ro
+    ports:
+      - '${APP_PORT}:80'
+      - '${VITE_PORT:-5173}:${VITE_PORT:-5173}'
+      - '443:443'
+    expose:
+      - "${APP_PORT}"
+    networks:
+      - backend
+    depends_on:
+      - redis
+    environment:
+      TZ: "${APP_TZ:-Asia/Dhaka}"
+
+  redis:
+    image: 'redis:alpine'
+    hostname: redis
+    command: --port ${REDIS_PORT}
+    ports:
+      - '${REDIS_PORT}:${REDIS_PORT}'
+    volumes:
+      - storage:/data
+    networks:
+      - backend
+    healthcheck:
+      test: [ "CMD", "redis-cli", "ping" ]
+      retries: 3
+      timeout: 5s
+    restart: always
+
+networks:
+  backend:
+    driver: bridge
+
+volumes:
+  storage:
+    driver: local
