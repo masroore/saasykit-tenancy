@@ -16,9 +16,9 @@
         "guzzlehttp/guzzle": "^7.10",
         "intervention/image": "^3.11",
         "laragear/two-factor": "^3.0",
-        "laravel/framework": "^12.39",
-        "laravel/sanctum": "^4.2",
-        "laravel/socialite": "^5.23",
+        "laravel/framework": "^12.0",
+        "laravel/sanctum": "^4.0",
+        "laravel/socialite": "^5.0",
         "laravel/tinker": "^2.10",
         "laravel/ui": "^4.6",
         "livewire/flux": "^2.8",
@@ -49,8 +49,6 @@
         "barryvdh/laravel-ide-helper": "^3.6",
         "driftingly/rector-laravel": "^2.1",
         "laravel/pail": "^1.2.3",
-        "barryvdh/laravel-debugbar": "^3.16",
-        "deployer/deployer": "7.5",
         "doctrine/dbal": "^4.3",
         "fakerphp/faker": "^1.24",
         "kkomelin/laravel-translatable-string-exporter": "^1.25",
@@ -61,7 +59,7 @@
         "mockery/mockery": "^1.6",
         "nunomaduro/collision": "^8.8",
         "phpunit/phpunit": "^11.0",
-        "tightenco/duster": "^3.3" ,
+        "tightenco/duster": "^3.3",
         "spatie/laravel-ignition": "^2.9"
     },
     "autoload": {
@@ -108,7 +106,7 @@
         ],
         "fix": "vendor/bin/duster fix",
         "pint": "vendor/bin/pint",
-        "rector": "vendor/bin/rector"        
+        "rector": "vendor/bin/rector"
     },
     "extra": {
         "laravel": {
